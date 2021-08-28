@@ -38,7 +38,7 @@ namespace PilliesBOT
                 .AddSingleton(_commands)
                 .BuildServiceProvider();
 
-            //storing the token 
+            
 
            
 
@@ -49,6 +49,8 @@ namespace PilliesBOT
 
             await RegisterCommandsAsync();
             await _client.LoginAsync(TokenType.Bot, Environment.GetEnvironmentVariable("token"));
+            //Store the token in a env 
+            
             await _client.StartAsync();
             await Task.Delay(-1);
            
