@@ -1,3 +1,3 @@
 # PilliesBOT
 A fully working Discord  BOT , with new commands
-change the launchSettings.json to your token (the one provided is an example) 
+change the token value in launchSettings.json to your Discord bot token (the one provided is an example) 
