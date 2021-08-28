@@ -45,17 +45,22 @@ namespace PilliesBOT.Modules
             await ReplyAsync($"Wow this {user.Mention} actually managed to get kicked :clap: :clap:");
             await user.KickAsync();
         }
-    
-    [Command("swing")]
-      [RequireUserPermission(GuildPermission.BanMembers)]
-    public async Task Ban([Remainder] SocketGuildUser user)
-    {
-          
+
+        [Command("swing")]
+        [RequireUserPermission(GuildPermission.BanMembers)]
+        public async Task Ban([Remainder] SocketGuildUser user)
+        {
+
             await ReplyAsync($"THIS PERSON -> {user.Mention} GOT BANNED :dizzy_face: :dizzy_face: ");
-        await user.BanAsync();
+            await user.BanAsync();
+        }
+        [Command("whois")]
+        public async Task UserInfoAsync(SocketUser user = null)
+        {
+            var info = user ?? Context.Client.CurrentUser;
+            await ReplyAsync($"{info.Username}#{info.Discriminator}");
+        }
+
+
     }
-
-
-
-}
 }
