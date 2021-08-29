@@ -23,7 +23,7 @@ namespace PilliesBOT.Modules
         [Command("echo")]
         public async Task Say([Remainder] string text)
         {
-            await ReplyAsync(text);
+            await ReplyAsync('\u200B' + text);
         }
 
 
@@ -31,10 +31,13 @@ namespace PilliesBOT.Modules
         [RequireContext(ContextType.Guild)]
         public class Set : ModuleBase
         {
-            [Command("mention")]
-            public async Task Mention(SocketGuildUser user)
+            [Command("hi"), Alias("hello")]
+            public async Task Mention()
             {
-                await ReplyAsync($"Hello {user.Mention}");
+                var user = Context.User.Mention;
+                await ReplyAsync($"Hello {user}");
+
+
             }
         }
         [Command("kck")]
@@ -62,5 +65,12 @@ namespace PilliesBOT.Modules
         }
 
 
+        [Command("list")]
+        public Task ListAsync(params string[] objects)
+          => ReplyAsync("You listed: " + string.Join(": ", objects));
+
     }
 }
+
+
+

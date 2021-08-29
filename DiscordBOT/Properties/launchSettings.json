@@ -3,7 +3,8 @@
     "DiscordBOT": {
       "commandName": "Project",
       "environmentVariables": {
-        "Key": "Value"
+        "Key": "Value",
+        "token": "Insert your bot token"
       }
     }
   }
